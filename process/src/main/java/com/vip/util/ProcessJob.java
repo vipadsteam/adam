@@ -8,9 +8,13 @@ import java.util.concurrent.Executors;
  */
 public class ProcessJob {
 
-    public ProcessData processData = new ProcessData();
+    private ProcessData processData = new ProcessData();
+    
+    private ProcessJob() {
+		super();
+	}
 
-    public void init(String PID,long time) {
+	public void init(String PID,long time) {
         ExecutorService singleThreadPool = Executors.newSingleThreadExecutor();
         processData.setPID(PID);
         singleThreadPool.execute(new ProcessListener(processData,time));

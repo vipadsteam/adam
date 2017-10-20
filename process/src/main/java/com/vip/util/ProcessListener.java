@@ -15,6 +15,7 @@ public class ProcessListener implements Runnable {
 
     public ProcessListener(ProcessData processData, long time){
         this.processData = processData;
+        this.time = time;
     }
 
     @Override
@@ -22,7 +23,7 @@ public class ProcessListener implements Runnable {
         getCpuUsage();
     }
 
-    public void getCpuUsage(){
+    private void getCpuUsage(){
 
         if(processData.getPID() == null){
             return;
